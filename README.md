@@ -1,14 +1,14 @@
-# OpenBB Workspace
+# Trading Terminal
 
 ## Introduction
 
-An OpenBB Workspace Data Integration is a versatile way to connect your data to widgets inside OpenBB Workspace. Whether hosted internally or externally, this method provides a standardized structure that OpenBB Workspace widgets can read and then display any data.
+This repository is a Trading Terminal customized to use OpenBB-style backend integrations. Whether hosted internally or externally, this approach provides a standardized structure that terminal widgets can read and display.
 
-Note: Most of the examples provided use Python FastAPI due to our familiarity with the library, but the same could be done utilizing different languages.
+Note: most examples use Python FastAPI because it is the stack we know best, but you can implement the same pattern in other languages.
 
-The Main tenants are:
+The main backend integration tenets are:
 
-1. **Data returned should be in JSON format** (Note : you can utilize the "dataKey" variable in the widgets.json if you have nested JSON.)
+1. **Return data in JSON format** (if your response is nested, you can use the `dataKey` field in `widgets.json`).
 
 <details>
     <summary>Example JSON</summary>
@@ -35,34 +35,36 @@ The Main tenants are:
         "price": 300.25,
         "marketCap": 220000000,
         "change": 0.98
-      },
+      }
     ]
     ```
 
 </details>
 
-2. **An endpoint returning a ```widgets.json``` file** : This file defines widget properties such as name, description, category, type, endpoint, and other information. Each widget will be defined in this file – You can find the format in any of the templates folder with a detailed definition below.
+2. **Expose an endpoint that returns `widgets.json`**: this file defines widget properties such as name, description, category, type, endpoint, and related metadata. Each widget is defined in this file. You can find examples in the template folders and a detailed definition below.
 
-3. **CORS Enabled** : If hosting locally you must enable [CORS](https://fastapi.tiangolo.com/tutorial/cors/).
+3. **Enable CORS**: if you host locally, you must enable [CORS](https://fastapi.tiangolo.com/tutorial/cors/).
 
-4. **Adding Authentication (optional)** : If your backend requires authentication we offer the ability to set a query param or header when you connect to it through OpenBB Pro. These values are sent on every request when configured. If you require another method - please reach out to us.
+4. **Authentication (optional)**: if your backend requires authentication, you can configure a query parameter or header when connecting through OpenBB Pro. These values are sent on every request once configured. If you need another authentication method, please reach out to us.
 
 ## Getting Started
 
-We recommend starting with the [getting-started/hello-world](getting-started/hello-world/README.md) example.
+We recommend this order:
 
-Then Moving on to the [getting-started/reference-backend](getting-started/reference-backend/README.md).
+1. Start with [getting-started/hello-world](getting-started/hello-world/README.md).
+2. Continue with [getting-started/reference-backend](getting-started/reference-backend/README.md).
 
-This will give you a good understanding of how to setup your own backend and connect it to OpenBB Workspace.
+These examples provide a strong foundation for setting up your own backend and connecting it to the Trading Terminal widget ecosystem.
 
 ### Leveraging AI
 
-If you are utilizing a coding agent to build your OpenBB backend, we recommend:
-- Utilizing the following MCP Server to enhance coding agent with OpenBB docs: [https://smithery.ai/server/@DidierRLopes/openbb-docs-mcp](https://smithery.ai/server/@DidierRLopes/openbb-docs-mcp)
-- Or providing the entire documentation to the agent in markdown format by copy-pasting this link into context: [https://docs.openbb.co/workspace/llms-full.txt](https://docs.openbb.co/workspace/llms-full.txt).
+If you are using a coding agent to build your OpenBB backend, we recommend:
 
-For more examples on setting up your own App - you can head to our documentation at [https://docs.openbb.co/workspace](https://docs.openbb.co/workspace).
+- Using the OpenBB docs MCP server: [https://smithery.ai/server/@DidierRLopes/openbb-docs-mcp](https://smithery.ai/server/@DidierRLopes/openbb-docs-mcp)
+- Or providing full docs context in markdown format: [https://docs.openbb.co/workspace/llms-full.txt](https://docs.openbb.co/workspace/llms-full.txt)
 
-## Examples of apps
+For more examples and guides, visit [https://docs.openbb.co/workspace](https://docs.openbb.co/workspace).
 
-Check awesome open source OpenBB apps built by our team or by the community here: [https://github.com/OpenBB-finance/awesome-openbb](https://github.com/OpenBB-finance/awesome-openbb).
+## Examples of Apps
+
+Explore open-source OpenBB apps built by the team and community: [https://github.com/OpenBB-finance/awesome-openbb](https://github.com/OpenBB-finance/awesome-openbb).
