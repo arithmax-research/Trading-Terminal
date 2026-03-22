@@ -1,2 +1,7 @@
 /data_pipeline/
 .conda/
+__pycache__/
+venv/*
+
+**/.env
+**/.venv

@@ -1,0 +1,19 @@
+{
+  "home_rentals_prediction": {
+    "name": "Home rental prediction",
+    "description": "Home rental prediction using MindsDB",
+    "category": "Economy",
+    "subCategory": "Home Data",
+    "endpoint": "home_rentals_prediction",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "id",
+        "showAll": true
+      }
+    }
+  }
+}
